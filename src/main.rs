@@ -1242,63 +1242,263 @@
 // }
 
 // 填空，让代码运行
-use crate::List::*;
+// use crate::List::*;
+//
+// enum List {
+//     // Cons: 链表中包含有值的节点，节点是元组类型，第一个元素是节点的值，第二个元素是指向下一个节点的指针
+//     Cons(u32, Box<List>),
+//     // Nil: 链表中的最后一个节点，用于说明链表的结束
+//     Nil,
+// }
+//
+// // 为枚举实现一些方法
+// impl List {
+//     // 创建空的链表
+//     fn new() -> List {
+//         // 因为没有节点，所以直接返回 Nil 节点
+//         // 枚举成员 Nil 的类型是 List
+//         Nil
+//     }
+//
+//     // 在老的链表前面新增一个节点，并返回新的链表
+//     fn prepend(self, elem: u32) -> List {
+//         Cons(elem, Box::new(self))
+//     }
+//
+//     // 返回链表的长度
+//     fn len(&self) -> u32 {
+//         match *self {
+//             // 这里我们不能拿走 tail 的所有权，因此需要获取它的引用
+//             Cons(_, ref tail) => 1 + tail.len(),
+//             // 空链表的长度为 0
+//             Nil => 0,
+//         }
+//     }
+//
+//     // 返回链表的字符串表现形式，用于打印输出
+//     fn stringify(&self) -> String {
+//         match *self {
+//             Cons(head, ref tail) => {
+//                 // 递归生成字符串
+//                 format!("{}, {}", head, tail.stringify())
+//             }
+//             Nil => {
+//                 format!("Nil")
+//             }
+//         }
+//     }
+// }
+//
+// fn main() {
+//     // 创建一个新的链表(也是空的)
+//     let mut list = List::new();
+//
+//     // 添加一些元素
+//     list = list.prepend(1);
+//     list = list.prepend(2);
+//     list = list.prepend(3);
+//
+//     // 打印列表的当前状态
+//     println!("链表的长度是: {}", list.len());
+//     println!("{}", list.stringify());
+// }
 
-enum List {
-    // Cons: 链表中包含有值的节点，节点是元组类型，第一个元素是节点的值，第二个元素是指向下一个节点的指针
-    Cons(u32, Box<List>),
-    // Nil: 链表中的最后一个节点，用于说明链表的结束
-    Nil,
-}
+// 填空
+// fn main() {
+//     let n = 5;
+//
+//     if n < 0 {
+//         println!("{} is negative", n);
+//     } else if n > 0 {
+//         println!("{} is positive", n);
+//     } else {
+//         println!("{} is zero", n);
+//     }
+// }
 
-// 为枚举实现一些方法
-impl List {
-    // 创建空的链表
-    fn new() -> List {
-        // 因为没有节点，所以直接返回 Nil 节点
-        // 枚举成员 Nil 的类型是 List
-        Nil
-    }
+// 修复错误
+// fn main() {
+//     let n = 5;
+//
+//     let big_n = if n < 10 && n > -10 {
+//         println!(" 数字太小，先增加 10 倍再说");
+//
+//         10 * n
+//     } else {
+//         println!("数字太大，我们得让它减半");
+//
+//         n / 2
+//     };
+//
+//     println!("{} -> {}", n, big_n);
+// }
 
-    // 在老的链表前面新增一个节点，并返回新的链表
-    fn prepend(self, elem: u32) -> List {
-        Cons(elem, Box::new(self))
-    }
+// fn main() {
+//     for n in 1..=100 {
+//         // 修改此行，让代码工作
+//         if n == 101 {
+//             panic!("NEVER LET THIS RUN")
+//         }
+//     }
+// }
 
-    // 返回链表的长度
-    fn len(&self) -> u32 {
-        match *self {
-            // 这里我们不能拿走 tail 的所有权，因此需要获取它的引用
-            Cons(_, ref tail) => 1 + tail.len(),
-            // 空链表的长度为 0
-            Nil => 0,
-        }
-    }
+// 修复错误，不要新增或删除代码行
+// fn main() {
+//     let names = [String::from("liming"), String::from("hanmeimei")];
+//     for name in &names {
+//         // do something with name...
+//     }
+//
+//     println!("{:?}", names);
+//
+//     let numbers = [1, 2, 3];
+//     // numbers中的元素实现了 Copy，因此无需转移所有权
+//     for n in numbers {
+//         // do something with name...
+//     }
+//
+//     println!("{:?}", numbers);
+// }
 
-    // 返回链表的字符串表现形式，用于打印输出
-    fn stringify(&self) -> String {
-        match *self {
-            Cons(head, ref tail) => {
-                // 递归生成字符串
-                format!("{}, {}", head, tail.stringify())
-            }
-            Nil => {
-                format!("Nil")
-            }
-        }
-    }
+// fn main() {
+//     let a = [4, 3, 2, 1];
+//
+//     // 通过索引和值的方式迭代数组 `a`
+//     for (i, v) in a {
+//         println!("第{}个元素是{}", i + 1, v);
+//     }
+// }
+
+// fn main() {
+//     let a = [4, 3, 2, 1];
+//
+//     // iterate the indexing and value in 'a'
+//     for (i, v) in a.iter().enumerate() {
+//         println!("The {}th element is {}", i + 1, v);
+//     }
+// }
+
+// 填空，让最后一行的  println! 工作 !
+// fn main() {
+//     // 一个计数值
+//     let mut n = 1;
+//
+//     // 当条件为真时，不停的循环
+//     while n < 10 {
+//         if n % 15 == 0 {
+//             println!("fizzbuzz");
+//         } else if n % 3 == 0 {
+//             println!("fizz");
+//         } else if n % 5 == 0 {
+//             println!("buzz");
+//         } else {
+//             println!("{}", n);
+//         }
+//
+//         n += 1;
+//     }
+//
+//     println!("n 的值是 {}, 循环结束", n);
+// }
+
+// 填空，不要修改其它代码
+// fn main() {
+//     let mut n = 0;
+//     for i in 0..=100 {
+//         if n == 66 {
+//             break;
+//         }
+//         n += 1;
+//     }
+//
+//     assert_eq!(n, 66);
+// }
+
+// 填空，不要修改其它代码
+// fn main() {
+//     let mut count = 0u32;
+//
+//     println!("Let's count until infinity!");
+//
+//     // 无限循环
+//     loop {
+//         count += 1;
+//
+//         if count == 3 {
+//             println!("three");
+//
+//             // 跳过当此循环的剩余代码
+//             continue;
+//         }
+//
+//         println!("{}", count);
+//
+//         if count == 5 {
+//             println!("OK, that's enough");
+//
+//             break;
+//         }
+//     }
+//
+//     assert_eq!(count, 5);
+// }
+
+// 填空
+// fn main() {
+//     let mut counter = 0;
+//
+//     let result = loop {
+//         counter += 1;
+//         if counter == 10 {
+//             break 20;
+//         }
+//     };
+//
+//     assert_eq!(result, 20);
+// }
+
+// 填空
+// fn main() {
+//     let mut count = 0;
+//     'outer: loop {
+//         'inner1: loop {
+//             if count >= 20 {
+//                 // 这只会跳出 inner1 循环
+//                 break 'inner1; // 这里使用 `break` 也是一样的
+//             }
+//             count += 2;
+//         }
+//
+//         count += 5;
+//
+//         'inner2: loop {
+//             if count >= 30 {
+//                 break 'outer;
+//             }
+//
+//             continue 'outer;
+//         }
+//     }
+//
+//     assert!(count == 30)
+// }
+
+// 填空
+enum Direction {
+    East,
+    West,
+    North,
+    South,
 }
 
 fn main() {
-    // 创建一个新的链表(也是空的)
-    let mut list = List::new();
-
-    // 添加一些元素
-    list = list.prepend(1);
-    list = list.prepend(2);
-    list = list.prepend(3);
-
-    // 打印列表的当前状态
-    println!("链表的长度是: {}", list.len());
-    println!("{}", list.stringify());
+    let dire = Direction::South;
+    match dire {
+        Direction::East => println!("East"),
+        Direction::South | Direction::North => {
+            // 在这里匹配 South 或 North
+            println!("South or North");
+        }
+        _ => println!("West"),
+    };
 }
